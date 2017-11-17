@@ -1,0 +1,15 @@
+<h1>Edit Team</h1>
+
+<p><a href="/team">Close</a></p>
+
+<p>Name: <%= team.name %></p>
+
+<h2>Members</h2>
+
+<% if (members.length) { %>
+  <ul>
+    <% for (let ix = 0; ix < members.length; ix++) { %>
+      <li><%= members[ix].username %></li>
+    <% } %>
+  </ul>
+  <% } %>

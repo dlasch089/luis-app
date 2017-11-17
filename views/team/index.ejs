@@ -3,7 +3,11 @@
 <% if (teams.length) { %>
 <ul>
   <% for (let ix = 0; ix < teams.length; ix++) { %>
-    <li><%= teams[ix].name %></li>
+    <li>
+      <p><%= teams[ix].name %></p>
+      <p><a href="/team/<%= teams[ix]._id %>/edit">Edit team</a></p>
+      <p><a href="/team/<%= teams[ix]._id %>/assignments">Assignments</a></p>
+    </li>
   <% } %>
 </ul>
 <% } %>

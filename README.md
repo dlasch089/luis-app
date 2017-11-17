@@ -1,10 +1,5 @@
 # user stories
 
-
-## View Team Members
-
-As a Team Lead I want to view all members of a team so that I can add and delete them
-
 ## Add Team Member
 
 As a Team Lead I want to add a team member so that I can include them in the upcoming assignments
@@ -88,3 +83,9 @@ As a Team Lead I want to view all my teams so that I can manage each one of them
 ## Add Team
 
 As a Team Lead I want to add a team so that I can manage it
+
+
+
+## View Team Members
+
+As a Team Lead I want to view all members of a team so that I can add and delete them

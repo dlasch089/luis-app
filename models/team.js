@@ -10,8 +10,11 @@ const teamSchema = new Schema({
   owner: {
     type: ObjectId,
     ref: 'User'
-  }
-  // members: [{ type: ObjectId, ref: 'User' }]
+  },
+  members: [{
+    type: ObjectId,
+    ref: 'User'
+  }]
 });
 
 const Team = mongoose.model('Team', teamSchema);
