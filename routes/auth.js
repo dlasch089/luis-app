@@ -9,6 +9,14 @@ const User = require('../models/user').User;
 
 const bcryptSalt = 10;
 
+router.use((req, res, next) => {
+  if (req.user) {
+    res.redirect('/team');
+    return;
+  }
+  next();
+});
+
 // -- login
 
 router.get('/login', function (req, res, next) {
