@@ -13,3 +13,20 @@
     <% } %>
   </ul>
   <% } %>
+
+
+<h2>Create a new member</h2>
+
+<form action="/team/<%= team._id %>/member" method="post">
+  <div>
+    <label for="name">New user username:</label>
+    <input type="text" name="username">
+  </div>
+  <div>
+    <input type="submit" value="Create">
+    <% if (message) { %>
+      <p><%= message %></p>
+    <% } %>
+  </div>
+</form>
+

@@ -76,12 +76,63 @@ router.get('/:teamId/edit', function (req, res, next) {
       }
       const data = {
         team: team,
-        members: members
-        // message: req.flash('message')
+        members: members,
+        message: req.flash('message')
       };
       res.render('team/edit', data);
     });
   });
+});
+
+// -- team members
+
+router.post('/:teamId/member', function (req, res, next) {
+  if (!req.body.username) {
+    req.flash('message', 'Please provide the username');
+    res.redirect('/team/' + req.params.teamId + '/edit');
+    return;
+  }
+
+  User.findOne({username: req.body.username}, (err, user) => {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    // @todo maybe we want to just add the existing user as a member of this team
+    if (user) {
+      req.flash('message', 'Username is taken');
+      res.redirect('/team/' + req.params.teamId + '/edit');
+      return;
+    }
+
+    const newUser = new User({
+      username: req.body.username
+    });
+
+    newUser.save((err) => {
+      if (err) {
+        next(err);
+        return;
+      }
+
+      const updates = {
+        $push: {members: newUser._id}
+      };
+      Team.update({_id: req.params.teamId}, updates, (err) => {
+        if (err) {
+          next(err);
+          return;
+        }
+
+        res.redirect('/team/' + req.params.teamId + '/edit');
+      });
+    });
+  });
+
+  // update the team (push member into the array)
+
+  // redirect to team page
 });
 
 module.exports = router;
