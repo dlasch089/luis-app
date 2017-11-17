@@ -10,9 +10,8 @@ const User = require('../models/user').User;
 const bcryptSalt = 10;
 
 router.use((req, res, next) => {
-  if (req.user) {
+  if (req.user && req.path !== '/logout') {
     res.redirect('/team');
-    return;
   }
   next();
 });
@@ -87,6 +86,13 @@ router.post('/signup', (req, res, next) => {
       });
     });
   });
+});
+
+// -- logout
+
+router.post('/logout', (req, res, next) => {
+  req.logout();
+  res.redirect('/auth/login');
 });
 
 module.exports = router;

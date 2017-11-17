@@ -4,6 +4,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <% if (user) { %>
+      <p>logged in as <%=user.username%> </p>
+      <form action="/auth/logout" method="post"><button>logout</button></form>
+    <% } %>
+    <hr/>
     <%- body %>
+    <hr/>
+    @copy; ironhack 2017
   </body>
 </html>
