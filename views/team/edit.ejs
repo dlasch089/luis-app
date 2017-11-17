@@ -9,7 +9,7 @@
 <% if (members.length) { %>
   <ul>
     <% for (let ix = 0; ix < members.length; ix++) { %>
-      <li><%= members[ix].username %><form action="/team/<%= team._id %>/member/<%= members[ix]._id %>/delete" method="post"><button>Delete</button></form</li>
+      <li><%= members[ix].username %><form action="/team/<%= team._id %>/member/<%= members[ix]._id %>/delete" method="post"><button>Delete</button></form></li>
     <% } %>
   </ul>
   <% } %>

@@ -4,6 +4,7 @@ const express = require('express');
 
 const Team = require('../models/team').Team;
 const User = require('../models/user').User;
+const Assignment = require('../models/assignment').Assignment;
 
 const router = express.Router();
 
@@ -133,8 +134,6 @@ router.post('/:teamId/member', (req, res, next) => {
   });
 });
 
-// /team/<%= team._id %>/member/<%= members[ix]._id %>/delete
-
 router.post('/:teamId/member/:memberId/delete', (req, res, next) => {
   const updates = {
     $pullAll: {
@@ -148,6 +147,35 @@ router.post('/:teamId/member/:memberId/delete', (req, res, next) => {
     }
 
     res.redirect('/team/' + req.params.teamId + '/edit');
+  });
+});
+
+// -- assignments
+
+router.get('/:teamId/assignments', (req, res, next) => {
+  Team.findOne({_id: req.params.teamId}, (err, team) => {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    if (!req.user._id.equals(team.owner)) {
+      res.redirect('/team');
+      return;
+    }
+
+    Assignment.find({team: team._id}, (err, assignments) => {
+      if (err) {
+        next(err);
+        return;
+      }
+
+      const data = {
+        team: team,
+        assignments: assignments
+      };
+      res.render('team/assignments', data);
+    });
   });
 });
 

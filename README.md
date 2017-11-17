@@ -17,10 +17,6 @@ if (err) {
 # user stories
 
 
-## View Assignments
-
-As a Team Lead I want to see all past assignments of a team so that I can share the details with the members
-
 ## View Assignment (Share)
 
 As a Team Lead I want to see all the details of a past assignment so that I can share it with the members
@@ -108,3 +104,8 @@ As a Team Lead I want to add a team member so that I can include them in the upc
 ## Delete Team Member
 
 As a Team Lead I want to delete a team member so that they no longer show up in upcoming assignment creation
+
+
+## View Assignments
+
+As a Team Lead I want to see all past assignments of a team so that I can share the details with the members
