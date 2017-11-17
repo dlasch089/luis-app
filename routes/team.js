@@ -21,7 +21,7 @@ router.use((req, res, next) => {
 
 // -- team(s) homepage
 
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
   Team.find({owner: req.user._id}, (err, result) => {
     if (err) {
       next(err);
@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
   });
 });
 
-router.post('/', function (req, res, next) {
+router.post('/', (req, res, next) => {
   if (!req.body.name) {
     req.flash('message', 'Please provide a team name');
     res.redirect('/team');
@@ -57,7 +57,7 @@ router.post('/', function (req, res, next) {
 
 // -- team edit
 
-router.get('/:teamId/edit', function (req, res, next) {
+router.get('/:teamId/edit', (req, res, next) => {
   Team.findOne({_id: req.params.teamId}, (err, team) => {
     if (err) {
       next(err);
@@ -86,7 +86,7 @@ router.get('/:teamId/edit', function (req, res, next) {
 
 // -- team members
 
-router.post('/:teamId/member', function (req, res, next) {
+router.post('/:teamId/member', (req, res, next) => {
   if (!req.body.username) {
     req.flash('message', 'Please provide the username');
     res.redirect('/team/' + req.params.teamId + '/edit');
@@ -117,7 +117,9 @@ router.post('/:teamId/member', function (req, res, next) {
       }
 
       const updates = {
-        $push: {members: newUser._id}
+        $push: {
+          members: newUser._id
+        }
       };
       Team.update({_id: req.params.teamId}, updates, (err) => {
         if (err) {
@@ -129,10 +131,24 @@ router.post('/:teamId/member', function (req, res, next) {
       });
     });
   });
+});
 
-  // update the team (push member into the array)
+// /team/<%= team._id %>/member/<%= members[ix]._id %>/delete
 
-  // redirect to team page
+router.post('/:teamId/member/:memberId/delete', (req, res, next) => {
+  const updates = {
+    $pullAll: {
+      members: [req.params.memberId]
+    }
+  };
+  Team.update({_id: req.params.teamId}, updates, (err) => {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    res.redirect('/team/' + req.params.teamId + '/edit');
+  });
 });
 
 module.exports = router;

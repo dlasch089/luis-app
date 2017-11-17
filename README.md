@@ -17,10 +17,6 @@ if (err) {
 # user stories
 
 
-## Delete Team Member
-
-As a Team Lead I want to delete a team member so that they no longer show up in upcoming assignment creation
-
 ## View Assignments
 
 As a Team Lead I want to see all past assignments of a team so that I can share the details with the members
@@ -107,3 +103,8 @@ As a Team Lead I want to view all members of a team so that I can add and delete
 ## Add Team Member
 
 As a Team Lead I want to add a team member so that I can include them in the upcoming assignments
+
+
+## Delete Team Member
+
+As a Team Lead I want to delete a team member so that they no longer show up in upcoming assignment creation
