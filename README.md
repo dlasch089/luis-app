@@ -1,12 +1,6 @@
 # user stories
 
 
-## Homepage redirect
-
-As a user that tries to access the homepage I want to be redirected to login or teams so that I can continue my journey
-
-
-
 ## View Teams
 
 As a Team Lead I want to view all my teams so that I can manage each one of them
@@ -80,3 +74,6 @@ As a Team Lead I want to signup so that I can start managing my teams
 
 As a Team Lead I want to login so that I can continue managing my teams
 
+## Homepage redirect
+
+As a user that tries to access the / path I want to be redirected to login or teams page so that I can continue my journey

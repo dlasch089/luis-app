@@ -14,6 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 const dotenv = require('dotenv');
 
 const configurePassport = require('./helpers/passport');
+const index = require('./routes/index');
 const auth = require('./routes/auth');
 
 const app = express();
@@ -70,6 +71,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // -- routes
 
+app.use('/', index);
 app.use('/auth', auth);
 
 // -- 404 and error handler
