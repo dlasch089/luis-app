@@ -1,10 +1,6 @@
 # user stories
 
 
-## Add Team
-
-As a Team Lead I want to add a team so that I can manage it
-
 ## View Team Members
 
 As a Team Lead I want to view all members of a team so that I can add and delete them
@@ -86,3 +82,9 @@ As a Team Lead I want to view all my teams so that I can manage each one of them
 - STR: log in, go to /auth/login or /auth/signup
 - WH: you see the form
 - WSH: you should be redirected to /team
+
+
+
+## Add Team
+
+As a Team Lead I want to add a team so that I can manage it
