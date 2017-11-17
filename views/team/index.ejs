@@ -1,0 +1,9 @@
+<h1>Teams</h1>
+
+<% if (teams.length) { %>
+<ul>
+  <% for (let ix = 0; ix < teams.length; ix++) { %>
+    <li><%= teams[ix].name %></li>
+  <% } %>
+</ul>
+<% } %>

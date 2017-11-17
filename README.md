@@ -1,9 +1,10 @@
 # user stories
 
+## BUG! logged in users should not be able to see login/signup pages
 
-## View Teams
-
-As a Team Lead I want to view all my teams so that I can manage each one of them
+- STR: log in, go to /auth/login or /auth/signup
+- WH: you see the form
+- WSH: you should be redirected to /team
 
 ## Add Team
 
@@ -77,3 +78,8 @@ As a Team Lead I want to login so that I can continue managing my teams
 ## Homepage redirect
 
 As a user that tries to access the / path I want to be redirected to login or teams page so that I can continue my journey
+
+
+## View Teams
+
+As a Team Lead I want to view all my teams so that I can manage each one of them

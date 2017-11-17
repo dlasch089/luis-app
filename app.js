@@ -16,6 +16,7 @@ const dotenv = require('dotenv');
 const configurePassport = require('./helpers/passport');
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const team = require('./routes/team');
 
 const app = express();
 
@@ -34,7 +35,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {
-    maxAge: 60000
+    maxAge: 24 * 60 * 60 * 1000
   }
 }));
 
@@ -73,6 +74,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/team', team);
 
 // -- 404 and error handler
 
