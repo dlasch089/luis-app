@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<form action="/auth/login" method="POST">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" name="username">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+  </div>
+  <div>
+    <input type="submit" value="Login">
+    <% if (message) { %>
+      <p><%= message %></p>
+    <% } %>
+  </div>
+  <p>If you do not yet have an account, you can <a href="/auth/signup">Signup here</a>.</p>
+</form>

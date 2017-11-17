@@ -1,20 +1,11 @@
 # user stories
 
-## 404
 
-As a user that is looking for something that doesn't exist I want to see a 404 page so that I know it doesn't for sure
+## Homepage redirect
 
-## 500
+As a user that tries to access the homepage I want to be redirected to login or teams so that I can continue my journey
 
-As a user that encountered an unexpected error while using the app I want to see a nice 500 error page so that I know what happened
 
-## Signup
-
-As a Team Lead I want to signup so that I can start managing my teams
-
-## Login
-
-As a Team Lead I want to login so that I can continue managing my teams
 
 ## View Teams
 
@@ -63,3 +54,29 @@ As a Team Lead I want to reshuffle the pairs in a assignment so that I can make 
 ## Delete Team
 
 ## Edit Team Member
+
+
+
+
+---
+
+# DONE
+
+
+## 404
+
+As a user that is looking for something that doesn't exist I want to see a 404 page so that I know it doesn't for sure
+
+## 500
+
+As a user that encountered an unexpected error while using the app I want to see a nice 500 error page so that I know what happened
+
+
+## Signup
+
+As a Team Lead I want to signup so that I can start managing my teams
+
+## Login
+
+As a Team Lead I want to login so that I can continue managing my teams
+
